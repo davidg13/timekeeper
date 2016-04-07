@@ -121,13 +121,16 @@ public class ShiftServiceImpl implements ShiftService {
         BigDecimal shiftDuration = getFullShiftDuration(shiftDTO);
         ShiftType shiftType = shiftTypeRepository.findByValue(shiftDTO.getShiftType());
 
-        if(shiftType.getValue().equals("Regular")) {
+        if(shiftType == null) {
+            throw new ShiftCreationException("Shift type does not exist");
+        }
+        if("Regular".equals(shiftType.getValue())) {
             validateLunchPesentIfRequired(shiftDTO, shiftDuration);
             validateLunchValidIfPresent(shiftDTO);
-        } else if(shiftType.getValue().equals("Vacation")) {
+        } else if("Vacation".equals(shiftType.getValue())) {
             validateHasNoLunch(shiftDTO);
             validateHasEnoughVacationTime(shiftDuration,employee);
-        } else if(shiftType.getValue().equals("Sick")) {
+        } else if("Sick".equals(shiftType.getValue())) {
             validateHasNoLunch(shiftDTO);
             validateHasEnoughSickTime(shiftDuration, employee);
         } else {
