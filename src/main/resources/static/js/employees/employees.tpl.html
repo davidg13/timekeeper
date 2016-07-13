@@ -1,0 +1,49 @@
+<section class="container pull-left emp-main-component" id="employees">
+    <header class="section-top">
+        <h2>Employees</h2>
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" ng-model="empSearchLast"/>
+                </div>
+                <div class="form-group col-sm-7">
+                    <label class="control-label">Department</label>
+                    <select ng-model="empSearchDept">
+                        <option value="">All</option>
+                        <option ng-repeat="d in departments" value="{{d.name}}">{{d.name}}</option>
+                    </select>
+                </div>
+                <button class="btn btn-default" ng-click="searchEmployees()"><span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
+            </div>
+        </form>
+    </header>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Title</th>
+            <th>Department</th>
+            <th>Vacation</th>
+            <th>Sick</th>
+            <th>History</th>
+            <th>Hourly Wage</th>
+            <th>Status</th>
+            <th>Hired</th>
+        </tr>
+        <tr ng-repeat="e in employees | orderBy: 'lastName'">
+            <td><button class="btn btn-default" ng-show="e.employmentStatus == 'Active'" ng-click="createShift(e.id)"><span class="glyphicon glyphicon-time"></span></button></td>
+            <td>{{e.lastName}}</td>
+            <td>{{e.firstName}}</td>
+            <td>{{e.position}}</td>
+            <td>{{e.department}}</td>
+            <td>{{e.vacationHours}}</td>
+            <td>{{e.sickHours}}</td>
+            <td><button class="btn btn-default" ng-click="viewShiftsForEmployee(e.id)">History</button></td>
+            <td>{{e.hourlyRate | currency}}</td>
+            <td>{{e.employmentStatus}}</td>
+            <td>{{e.hireDate | date : 'shortDate' }}</td>
+        </tr>
+    </table>
+</section>

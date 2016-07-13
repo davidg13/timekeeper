@@ -23,6 +23,13 @@ public class EmployeesContoller {
     @Autowired
     EmployeeService employeeService;
 
+    @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public EmployeeDTO getEmployee(@PathVariable Long employeeId) {
+        log.info("Get employee with id " + employeeId);
+        return employeeService.getEmployee(employeeId);
+    }
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<EmployeeDTO> getEmployees(@RequestParam(value = "last", required = false) String lastName,

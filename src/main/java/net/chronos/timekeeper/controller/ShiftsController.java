@@ -39,7 +39,7 @@ public class ShiftsController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createShift(@RequestBody ShiftDTO shiftDTO, UriComponentsBuilder builder) {
-        log.info("Creating a shift");
+        log.info("Creating a shift for employee id {}", shiftDTO.getEmployeeId());
         Long id = shiftService.createShift(shiftDTO);
         UriComponents components = builder.path("/v1/shifts").buildAndExpand(id);
         HttpHeaders headers = new HttpHeaders();

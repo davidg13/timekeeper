@@ -1,0 +1,26 @@
+<section class="container  pull-left emp-main-component" id="employee-shifts">
+    <header class="section-top">
+        <button class="btn btn-close pull-right" ng-click="closeShifts()"><span class="glyphicon glyphicon-remove"></span></button>
+        <h2>Shift history for {{shiftEmployee.firstName + ' ' + shiftEmployee.lastName}}</h2>
+    </header>
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Lunch Start</th>
+            <th>Lunch End</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="s in shifts | orderBy: 'startTime'">
+            <td>{{s.startTime | date : 'shortDate'}}</td>
+            <td>{{s.shiftType}}</td>
+            <td>{{s.startTime | date : 'hh:mma'}}</td>
+            <td>{{s.endTime | date : 'hh:mma'}}</td>
+            <td>{{(s.lunchStartTime | date : 'hh:mma') || '---'}}</td>
+            <td>{{(s.lunchEndTime | date : 'hh:mma') || '---'}}</td>
+            <td><button class="btn" ng-click="deleteShift(s.shiftId, $index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+        </tr>
+    </table>
+</section>
