@@ -5,7 +5,7 @@ angular.module('shiftsModule').component('shiftsCreate',{
         $scope.createShift = function(id) {
             $scope.newShift = ShiftService.newShift();
             $scope.newShift.employeeId = id;
-        }
+        };
 
         $scope.cancelCreate = function() {
             $scope.clearShift();

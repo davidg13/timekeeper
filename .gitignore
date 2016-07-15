@@ -1,4 +1,6 @@
 target/
+target_grunt/
+node_modules
 .idea/
 
 *.log

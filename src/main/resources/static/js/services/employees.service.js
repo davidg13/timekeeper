@@ -21,7 +21,8 @@ angular.module('timekeeperApp').service('EmployeeService', function EmployeeServ
         return $http.get("/v1/employees/" + employeeId)
                 .then(function(response){  return response.data; })
                 .catch(function(error) { console.log(error.message);});
-    }
+    };
+
     return exports;
  });
 

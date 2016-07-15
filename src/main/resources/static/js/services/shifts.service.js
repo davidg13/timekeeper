@@ -1,7 +1,7 @@
 angular.module('timekeeperApp').service('ShiftService', function ShiftService($http) {
     var exports = {};
 
-    exports.getShiftTypes = function() { return ['Regular', 'Vacation', 'Sick', 'Holiday', 'UnpaidLeave']};
+    exports.getShiftTypes = function() { return ['Regular', 'Vacation', 'Sick', 'Holiday', 'UnpaidLeave']; };
 
     exports.getShiftsForEmployee = function(id) {
          var url = "/v1/shifts?employee-id=" + id;
@@ -40,7 +40,7 @@ angular.module('timekeeperApp').service('ShiftService', function ShiftService($h
           console.log(data);
          var url = "/v1/shifts";
          return $http.post(url,data)
-            .then(function() { return {creationError: false, creationErrorMessage: ""};})
+            .then(function() { return {creationError: false, creationErrorMessage: ""};});
 
      };
 

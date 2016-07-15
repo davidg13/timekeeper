@@ -1,0 +1,22 @@
+{
+  "name": "timekeeper",
+  "version": "1.0.0",
+  "description": "A sample app with services built on spring boot and an angular front-end.",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concat-in-order": "^0.2.6",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidg13/timekeeper.git"
+  },
+  "author": "dgagne13",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidg13/timekeeper/issues"
+  },
+  "homepage": "https://github.com/davidg13/timekeeper#readme"
+}
