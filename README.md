@@ -17,12 +17,15 @@ Then go to
 To log in:
 
 **user: machoman**
+
 **password: ohyeah**
 
 Requires:
 
 java 8
+
 maven
+
 npm (node.js package manager) for grunt concatenation
 
 
